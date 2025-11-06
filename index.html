@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy - Cafeterias Próximas</title>
+    <style>
+        :root{
+            --accent: #ffffff;
+            --overlay-start: rgba(6,18,34,0.55);
+            --overlay-end: rgba(6,18,34,0.15);
+        }
+        html,body{height:100%;margin:0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--accent)}
+        /* Hero com imagem local e texto de boas-vindas */
+        .hero{
+            background-image: linear-gradient(to bottom, var(--overlay-start), var(--overlay-end)), url('26649.jpg');
+            background-size: cover;
+            background-position: center top;
+            height: 100vh;
+            min-height: 480px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .welcome-text {
+            position: static;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            z-index: 2;
+            text-shadow: 0 3px 18px rgba(0,0,0,0.7);
+            font-family: 'Segoe Script', 'Brush Script MT', cursive, Arial, sans-serif;
+        }
+        .welcome-text .bemvindo {
+            font-size: 54px;
+            font-weight: 400;
+            margin: 0 0 18px 0;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .welcome-text .energy {
+            font-size: 120px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
+            font-family: 'Brush Script MT', 'Segoe Script', cursive, Arial, sans-serif;
+            text-align: center;
+        }
+        @media (max-width: 700px) {
+            .welcome-text .bemvindo { font-size: 32px; }
+            .welcome-text .energy { font-size: 64px; }
+        }
+        @media (max-width: 420px) {
+            .welcome-text .bemvindo { font-size: 20px; }
+            .welcome-text .energy { font-size: 36px; }
+        }
+        .brand { display: none; }
+        @media (max-width: 700px) {
+            .hero {
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 32px 0 0 0;
+                height: 100vh;
+                min-height: 480px;
+            }
+            .brand{
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin-top: 0;
+                padding-left: 24px;
+                width: 100%;
+            }
+            .brand .welcome{
+                font-size: 32px;
+                margin-bottom: 12px;
+                text-align: left;
+            }
+            .brand .energy{
+                font-size: 72px;
+                margin: 0;
+                text-align: left;
+                line-height: 1.05;
+            }
+            .brand .welcome{font-size:32px}
+            .brand .energy{font-size:84px}
+            .hero{height:60vh;min-height:340px;}
+        }
+        @media (max-width:420px){
+            .hero{
+                padding: 24px 0 0 0;
+                min-height: 340px;
+            }
+            .brand{
+                padding-left: 12px;
+            }
+            .brand .welcome{
+                font-size: 22px;
+            }
+            .brand .energy{
+                font-size: 48px;
+            }
+            .brand .welcome{font-size:18px}
+            .brand .energy{font-size:44px}
+            .hero{padding:18px;height:48vh;min-height:220px;}
+            .brand{padding:0 4px;}
+        }
+        @media (max-width:600px){
+            main{padding:10px;}
+            section[style]{padding:0 4px !important;}
+            .cards{flex-direction:column;gap:8px;}
+            .card{min-width:0;width:100%;box-sizing:border-box;}
+        }
+        /* Small screen adjustments */
+        @media (max-width:420px){
+            .brand .welcome{font-size:20px}
+            .brand .energy{font-size:64px}
+            .hero{padding:36px 18px}
+        }
+        @media (min-width:701px){
+            .hero{
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 48px 0 0 0;
+            }
+            .brand{
+                margin-top: 0;
+                padding-left: 48px;
+                align-items: flex-start;
+            }
+            .brand .welcome{
+                font-size: 48px;
+                margin-bottom: 18px;
+                text-align: left;
+            }
+            .brand .energy{
+                font-size: 120px;
+                text-align: left;
+            }
+        }
+        main{padding:28px;}
+        footer{
+            height:60px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#fff;
+            color:#111;
+            font-size:14px;
+        }
+        /* Optional small card area for nearby cafeterias */
+        .cards{
+            display:flex;
+            gap:14px;
+            flex-wrap:wrap;
+        }
+        .card{
+            background:#fff;
+            color:#111;
+            padding:16px;
+            border-radius:8px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.08);
+            min-width:200px;
+        }
+    </style>
+</head>
+<body>
+<header aria-hidden="true">
+</header>
+
+<main>
+    <section class="hero" role="img" aria-label="Vista aérea de cidade à noite">
+      <div class="welcome-text">
+        <div class="bemvindo">Bem vindo ao,</div>
+        <div class="energy">ENERGY</div>
+      </div>
+    </section>
+
+    <section style="max-width:1100px;margin:24px auto;padding:0 18px;">
+        <h2 style="margin:0 0 12px 0;">Cafeterias próximas</h2>
+        <p style="margin:0 0 18px 0;color:#444;">Encontre opções perto de você — filtre por distância, horário e avaliações.</p>
+        <div class="cards">
+            <div class="card">Cafeteria Central<br><small>200 m • Aberto</small></div>
+            <div class="card">Grão & Co.<br><small>430 m • Fecha às 20:00</small></div>
+            <div class="card">Esquina Café<br><small>850 m • 4.5 ★</small></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Energy. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
+
+
