@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista - Cafeteria</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #6b4f1d;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        nav ul li a:hover {
+            color: #e3c08d;
+        }
+        main {
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        h2 {
+            color: #6b4f1d;
+        }
+        label {
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        select {
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            border: 1px solid #e3c08d;
+            background: #f6ecd4;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.7rem;
+            text-align: left;
+        }
+        th {
+            background: #e3c08d;
+            color: #6b4f1d;
+        }
+        tr:nth-child(even) {
+            background: #f6ecd4;
+        }
+        tr:nth-child(odd) {
+            background: #fff;
+        }
+        tr:hover {
+            background: #ffe5b4;
+        }
+        footer {
+            background: #6b4f1d;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cafeteria</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Lista de Lugares para Turistas</h2>
+        <label for="tipoFiltro">Filtrar por tipo de localização:</label>
+        <select id="tipoFiltro" onchange="filtrarTabela()">
+            <option value="todos">Todos</option>
+            <option value="Restaurante">Restaurante</option>
+            <option value="Museu">Museu</option>
+            <option value="Parque">Parque</option>
+            <option value="Café">Café</option>
+        </select>
+        <table id="tabelaLugares" border="1" style="width:100%; margin-top:1rem;">
+            <thead>
+                <tr>
+                    <th style="width: 200px;">Imagem</th>
+                    <th style="width:390px;">Nome</th>
+                    <th style="width:480px;">Endereço</th>
+                    <th style="width:320px;">Contato</th>
+                    <th style="width:160px;">Tipo</th>
+                    <th style="width:650px;">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-tipo="Restaurante">
+                    <td><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=64&q=80" alt="Restaurante" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Restaurante Sabor Local</td>
+                    <td style="font-size:1.1rem;">Rua das Flores, 123</td>
+                    <td style="font-size:1.1rem;">(11) 1234-5678</td>
+                    <td style="font-size:1.1rem;">Restaurante</td>
+                    <td style="font-size:1.05rem;">Culinária regional em ambiente acolhedor, ideal para experimentar sabores típicos da cidade.</td>
+                </tr>
+                <tr data-tipo="Museu">
+                    <td><img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=64&q=80" alt="Museu" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Museu da Cidade</td>
+                    <td style="font-size:1.1rem;">Avenida Central, 456</td>
+                    <td style="font-size:1.1rem;">(11) 8765-4321</td>
+                    <td style="font-size:1.1rem;">Museu</td>
+                    <td style="font-size:1.05rem;">Exposições históricas e culturais que contam a evolução da região de forma interativa.</td>
+                </tr>
+                <tr data-tipo="Parque">
+                    <td><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=64&q=80" alt="Parque" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Parque Verde</td>
+                    <td style="font-size:1.1rem;">Rua do Parque, 789</td>
+                    <td style="font-size:1.1rem;">(11) 1122-3344</td>
+                    <td style="font-size:1.1rem;">Parque</td>
+                    <td style="font-size:1.05rem;">Área verde para caminhadas, piqueniques e lazer ao ar livre, perfeita para famílias.</td>
+                </tr>
+                <tr data-tipo="Café">
+                    <td><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=64&q=80" alt="Café" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Café do Centro</td>
+                    <td style="font-size:1.1rem;">Praça Central, 101</td>
+                    <td style="font-size:1.1rem;">(11) 5566-7788</td>
+                    <td style="font-size:1.1rem;">Café</td>
+                    <td style="font-size:1.05rem;">Cafés especiais e doces artesanais em ambiente tranquilo no coração da cidade.</td>
+                </tr>
+                <tr data-tipo="Restaurante">
+                    <td><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=64&q=80" alt="Restaurante" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Bistrô da Esquina</td>
+                    <td style="font-size:1.1rem;">Rua das Palmeiras, 222</td>
+                    <td style="font-size:1.1rem;">(11) 9988-7766</td>
+                    <td style="font-size:1.1rem;">Restaurante</td>
+                    <td style="font-size:1.05rem;">Pratos contemporâneos e carta de vinhos selecionada, ótimo para jantares especiais.</td>
+                </tr>
+                <tr data-tipo="Museu">
+                    <td><img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=64&q=80" alt="Museu" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Museu de Arte Moderna</td>
+                    <td style="font-size:1.1rem;">Avenida das Artes, 321</td>
+                    <td style="font-size:1.1rem;">(11) 3344-5566</td>
+                    <td style="font-size:1.1rem;">Museu</td>
+                    <td style="font-size:1.05rem;">Coleção de arte moderna nacional e internacional, com exposições rotativas.</td>
+                </tr>
+                <tr data-tipo="Parque">
+                    <td><img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=64&q=80" alt="Parque" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Parque das Águas</td>
+                    <td style="font-size:1.1rem;">Rua do Lago, 555</td>
+                    <td style="font-size:1.1rem;">(11) 7788-9900</td>
+                    <td style="font-size:1.1rem;">Parque</td>
+                    <td style="font-size:1.05rem;">Lago com pedalinho, trilhas e espaço para esportes, ideal para relaxar.</td>
+                </tr>
+                <tr data-tipo="Café">
+                    <td><img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0a8b7?auto=format&fit=crop&w=64&q=80" alt="Café" style="display:block;margin:auto;border-radius:4px;"></td>
+                    <td style="font-size:1.15rem;">Café Aroma</td>
+                    <td style="font-size:1.1rem;">Rua do Café, 202</td>
+                    <td style="font-size:1.1rem;">(11) 2233-4455</td>
+                    <td style="font-size:1.1rem;">Café</td>
+                    <td style="font-size:1.05rem;">Ambiente minimalista com cafés especiais e opções veganas de lanches.</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            function filtrarTabela() {
+                var filtro = document.getElementById('tipoFiltro').value;
+                var linhas = document.querySelectorAll('#tabelaLugares tbody tr');
+                linhas.forEach(function(linha) {
+                    if (filtro === 'todos' || linha.getAttribute('data-tipo') === filtro) {
+                        linha.style.display = '';
+                    } else {
+                        linha.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cafeteria. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
